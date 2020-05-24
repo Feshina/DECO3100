@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Additional Scripts and Libraries -->
 <head>
     <meta charset="utf-8">
     <title>Primary Causes of Death Across the World</title>
@@ -9,14 +10,27 @@
 </head>
 
 <body>
+
+    <!-- Visualisation Container-->
     <div id="visualisation">
+
+        <!-- Back To Top Button-->
         <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top ▲</button>
+
+
+        <!-- Heading and Subheading-->
         <h1>Primary Causes of Death Across the World</h1>
         <h2>A visualisation of most common causes of death in each country across the years 1997 - 2017</h2>
+        
+        <!--Container for Plotly Chart-->
         <div id="myDiv">
             <script src="index.js"></script>
         </div>
+
+        <!--Visualisation Legend-->
         <table class="legend">
+
+            <!--Table for spacing purposes. Column 1 contains swatch, Column 2 contains corresponding label -->
             <tbody>
                 <tr>
                     <td>
@@ -112,6 +126,8 @@
             </tbody>
         </table>
 
+
+        <!-- Explanatory paragraphs-->
         <div class="explainer-text">
             <p><strong>Throughout the years, healthcare, economic status and other factors have affected the lives of many people. 
                 But how has it affected the way they die?</strong><br><br>Click through the years to see how primary causes of death changed 
