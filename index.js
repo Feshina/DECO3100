@@ -110,6 +110,7 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
         plot_bgcolor: 'rgb(36, 36, 36)',
         geo: {
             scope: "world",
+            projection: "miller",
             center: {
                 lon: 13,
                 lat: 25,
