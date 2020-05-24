@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Primary Causes of Death Across the World</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+    <div id="visualisation">
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Back to Top ▲</button>
+        <h1>Primary Causes of Death Across the World</h1>
+        <h2>1997 - 2017</h2>
+        <div id="myDiv">
+            <script src="index.js"></script>
+        </div>
+        <table class="legend">
+            <tbody>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(161, 202, 241);" />
+                        </svg>
+                    </td>
+                    <td class="cause"><a href="#cardio">Cardiovascular Disease</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(230, 143, 172);" />
+                        </svg>
+                    </td>
+                    <td class="cause"><a href="#cancer">Cancers</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(242, 223, 145);" />
+                        </svg>
+                    </td>
+                    <td class="cause"><a href="#lrd">Lower Respiratory Disease</a></td>
+                </tr>
+                <td><svg width="25" height="25">
+                        <rect width="20" height="20" style="fill:rgb(141, 105, 150);" />
+                    </svg>
+                </td>
+                <td class="cause"><a href="#malaria">Malaria</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(201, 101, 101);" />
+                        </svg>
+                    </td>
+                    <td class="cause"><a href="#hiv">HIV/AIDS</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(224, 170, 110);" />
+                        </svg>
+                    </td>
+                    <td class="cause"><a href="#tube">Tuberculosis</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(107, 131, 198);" />
+                        </svg></td>
+                    <td class="cause"><a href="#neo">Neonatal Disorders</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(244, 184, 171);" />
+                        </svg></td>
+                    <td class="cause"><a href="#nat">Natural Disasters</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(115, 168, 146);" />
+                        </svg></td>
+                    <td class="cause"><a href="#dia">Diarrheal Disorders</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(141, 182, 0);" />
+                        </svg></td>
+                    <td class="cause"><a href="#nut">Nutritional Deficiencies</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="fill:rgb(239, 125, 80);" />
+                        </svg>
+                    </td>
+                    <td class="cause"><a href="#con">Conflict</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <svg width="25" height="25">
+                            <rect width="20" height="20" style="stroke:#3e3e3e; stroke-width:1px; fill:rgb(36, 36, 36)" />
+                        </svg>
+                    </td>
+                    <td class="cause">No Data</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+        <div class="explainer-text">
+            <p id="source"><br>Data Source: Compiled by Kaggle user from various global organisations such as the World Health Organisation and Global Health Data Exchange</p>
+        </div>
+        <div class="explainer-box" id="cardio"><a name="cardio"></a>
+            <h3 id="head-car">Cardiovascular Diseases</h3>
+            <p>Cardiovascular diseases (CVDs) are the number 1 cause of death globally: more people die annually from
+                CVDs than from any other cause. An estimated 17.9 million people died from CVDs in 2016, representing
+                31% of all global deaths. Of these deaths, 85% are due to heart attack and stroke. Very often, a death
+                at old age from a CVD is referred to as a “Natural Death”.</p>
+        </div>
+        <div class="explainer-box" id="cancer"><a name="cancer"></a>
+            <h3 id="head-can">Cancers</h3>
+            <p>Cancer is a group of diseases involving abnormal cell growth with the potential to invade or spread to
+                other parts of the body. These contrast with benign tumors, which do not spread. <br>
+                Older people are more susceptible to cancer, as their cells do not grow and replicate as effectively as
+                those of a young person. With the increasing life expectancy in the 1st world, more older people develop
+                cancers as they live to an older age.</p>
+        </div>
+        <div class="explainer-box" id="lrd"><a name="lrd"></a>
+            <h3 id="head-lrd">Lower Respiratory Diseases</h3>
+            <p>Chronic lower respiratory diseases are a group of conditions affecting the lungs. The group is the second
+                leading cause of death in the US and fourth in Australia. The three main contributors to the death rate
+                from chronic respiratory diseases are: chronic obstructive pulmonary disease (COPD), asthma and
+                bronchiectasis or permanent damage to the airways. This can be caused by pollution, poor working
+                environments and respiratory infections.</p>
+        </div>
+        <div class="explainer-box" id="malaria"><a name="malaria"></a>
+            <h3 id="head-mal">Malaria</h3>
+            <p>Malaria is a serious and sometimes fatal disease caused by a parasite that commonly infects a certain
+                type of mosquito which feeds on humans. People who get malaria are typically very sick with high fevers,
+                shaking chills, and flu-like illness. <br>
+                This illness is common in tropical and equatorial regions of the planet, especially humid tropical
+                environments. While a malaria vaccine exists, it’s only effective approximately 40% of the time. African
+                countries struggle with this disease as it’s prevalence and poor access to medication can create fatal
+                outbreaks in small communities.
+            </p>
+        </div>
+        <div class="explainer-box" id="hiv"><a name="hiv"></a>
+            <h3 id="head-hiv">HIV/AIDS</h3>
+            <p>Human immunodeficiency virus infection and acquired immune deficiency syndrome (HIV/AIDS) is a spectrum
+                of conditions caused by infection with the human immunodeficiency virus (HIV). It attacks the immune
+                system, and can disable it altogether, leaving a person with no defences against other diseases. If a
+                person is suffering from HIV/AIDS, a simple cold can be fatal. It’s a blood-bourne disease and is spread
+                when infected blood makes contact with a mucous membrane. HIV/AIDS is considered a pandemic—a disease
+                outbreak which is present over a large area and is actively spreading.
+            </p>
+        </div>
+        <div class="explainer-box" id="tube"><a name="tube"></a>
+            <h3 id="head-tub">Tuberculosis</h3>
+            <p>Tuberculosis (TB) is an infectious disease usually caused by bacteria. Tuberculosis generally affects the
+                lungs, but can also affect other parts of the body. This disease can be passed on through air, and has
+                been present in humans since the ancient times. It’s especially dangerous in countries with poor hygiene
+                and healthcare.
+            </p>
+        </div>
+        <div class="explainer-box" id="neo"><a name="neo"></a>
+            <h3 id="head-neo">Neonatal Disorders</h3>
+            <p>Neonatal disorders are disorders or illnesses that occur during prenatal development (in the womb) or in
+                the first four weeks of life (neonatal period). Some neonatal disorders are apparent soon after birth,
+                while others may develop further in the baby’s life. Some neonatal infections such as HIV, hepatitis B,
+                and malaria do not become apparent until much later. Countries with poor healthcare, and those where
+                home birth is common, are most susceptible to a high rate of these disorders.</p>
+        </div>
+        <div class="explainer-box" id="nat"><a name="nat"></a>
+            <h3 id="head-nat">Natural Disasters</h3>
+            <p>A natural disaster is a major adverse event resulting from natural processes of the Earth; examples are
+                floods, hurricanes, tornadoes, volcanic eruptions, earthquakes, tsunamis, storms, and other geologic
+                processes. These events often leave people without power, homes and clean water.
+            </p>
+        </div>
+        <div class="explainer-box" id="dia"><a name="dia"></a>
+            <h3 id="head-dia">Diarrheal Disorders</h3>
+            <p>Diarrheals disorders refer to watery bowel movements. They are especially dangerous as they cause
+                dehydration. In countries where water is not easily available, this can prove fatal, especially when
+                combined with another disease.</p>
+        </div>
+        <div class="explainer-box" id="nut"><a name="nut"></a>
+            <h3 id="head-nut">Nutritional Deficiencies</h3>
+            <p>A nutritional deficiency occurs when the body doesn't absorb or get from food the necessary amount of a
+                nutrient. Deficiencies can lead to a variety of health problems. These can include digestion problems,
+                skin disorders, stunted or defective bone growth, and even dementia. In countries with poor economies,
+                this is unfortunately a common occurrence. Especially so in children: nutrition is vital for
+                development, and if not given proper nutritious food, children will often fail to live into adulthood.
+            </p>
+        </div>
+        <div class="explainer-box" id="con"><a name="con"></a>
+            <h3  id="head-con">Conflict</h3>
+            <p>Many lives are lost in war, and on occasion, this may sadly become the highest killer of people in the
+                country.
+            </p>
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
