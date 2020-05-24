@@ -14,6 +14,8 @@ a {
     text-decoration: none;
 }
 
+
+/*Only display underline when hovering over link*/
 a:hover {
     text-decoration: underline;
 }
@@ -38,23 +40,27 @@ h2 {
     float: left;
 }
 
+/* Back to top button*/
 #myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #313131; /* Set a background color */
-    color: #ffffff; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 13px; /* Increase font size */
+    /* Hidden by default */
+    display: none; 
+    /* Fixed/sticky position */
+    position: fixed; 
+    bottom: 20px; 
+    right: 30px; 
+    border: none;
+    outline: none; 
+    background-color: #313131; 
+    color: #ffffff; 
+    /* Add a mouse pointer on hover */
+    cursor: pointer; 
+    padding: 15px; 
+    border-radius: 5px; 
+    font-size: 13px;
   }
   
   #myBtn:hover {
-    background-color: #555555; /* Add a dark-grey background on hover */
+    background-color: #555555; 
   }
 
 .legend {
@@ -75,6 +81,8 @@ h2 {
     float: left;
 }
 
+
+/*Each box should sit in a 2 column arrangement on wide screens, but single column on narrow screens*/
 .explainer-box {
     text-align: left;
     width: 25%;
@@ -94,6 +102,8 @@ svg {
     padding-top: 2px;
     vertical-align: text-top;
 }
+
+/*Individual heading colours (Yeas I am a monster)*/
 
 #head-car {
     color: rgb(161, 202, 241);
@@ -138,8 +148,3 @@ svg {
 #head-con {
     color: rgb(239, 125, 80);
 }
-
-
-
-
-
