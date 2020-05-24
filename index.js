@@ -2,7 +2,7 @@
 // Effort has been made to comment the code thoroughly to show understanding, in case similarity is attributed to palgiarism
 // Original code can be found at https://plotly.com/javascript/map-animations/
 
-//Get the button:
+//Get the back-to-top button element:
 mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -22,27 +22,37 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+// Open Data Source
 Plotly.d3.csv("COD.csv", function (err, rows) {
 
 
+    // For each row of data, package into bundles using year as grouping variable
     function filter_and_unpack(rows, key, year) {
         return rows.filter(row => row["Year"] == year).map(row => row[key])
     }
 
+    // Variable Definitions
     var frames = []
     var slider_steps = []
 
+    // Number of slider steps/animation frames
     var n = 20;
+    // Starting year
     var num = 1997;
 
+    // Iterate through dataset, build arrays containing data in each variable
     for (var i = 0; i <= n; i++) {
         var z = filter_and_unpack(rows, "Highest In Country", num)
         var locations = filter_and_unpack(rows, "Code", num)
         var cause = filter_and_unpack(rows, "Cause of death words", num)
         var text = filter_and_unpack(rows, "Name", num)
+
+        // For each "cause of death" value, tack on cause of death in plain text, and other tooltip text
         for (var f = 0; f <= 196; f++) {
             text[f] = "<b>Country: </b>" + text[f] + "<br><b>Primary Cause of Death: </b>" +  cause[f]
         }
+
+        // Add each slider step object into a object array readble by Plotly
         frames[i] = {
             data: [{
                 z: z,
@@ -51,6 +61,8 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
             }],
             name: num
         }
+
+        // Animation control, iterate slider step each 1/3 second, move onto next frame
         slider_steps.push({
             label: num.toString(),
             method: "animate",
@@ -66,19 +78,31 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
                 }
             ]
         })
+
+        // Iterate iterator (huh)
         num = num + 1
     }
 
+
+    // establish main data structure
     var data = [{
+
+        // Map setup
         type: "choropleth",
         locationmode: "world",
+
+        // Custom colour scale
         autocolorscale: false,
         zauto: false,
         zmin: 0,
         zmax: 10,
+
+        // Fetch data from earlier for loop
         locations: frames[0].data[0].locations,
         z: frames[0].data[0].z,
         text: frames[0].data[0].text,
+
+        // Defining individual colour values
         colorscale: [
             [0, "rgb(242, 223, 145)"],
             [0.1, "rgb(161, 202, 241)"],
@@ -92,30 +116,43 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
             [0.9, "rgb(141, 182, 0)"],
             [1, "rgb(239, 125, 80)"]
         ],
+
+        // Hide the scary rainbow bar (ew)
         showscale: false,
+
+        // Show concatnated tooltip text
         hoverinfo: "text",
 
     }];
+
+
+    // Plot area layout setup
     var layout = {
-        modebar: {
-            orientation: "v",
-        },
+
         margin: {
             t: 40, //top margin
             l: 200, //left margin
             r: 50, //right margin
             b: 20, //bottom margin
         },
+
+        // Colours
         paper_bgcolor: 'rgb(30, 30, 30)',
         plot_bgcolor: 'rgb(36, 36, 36)',
+
+        // Subplot setup
         geo: {
             scope: "world",
             projection: "miller",
+
+            // Center it so America doesn't have a piece of Russia attached to it
             center: {
                 lon: 13,
                 lat: 25,
             },
             
+
+            // Map subplot colours
             bgcolor: 'rgb(36, 36, 36)',
             showland: false,
             showcountries: false,
@@ -129,6 +166,7 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
         
         },
 
+        // Button Menu Setup
         updatemenus: [{
             x: 0.1,
             y: 0,
@@ -143,7 +181,10 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
                 r: 0,
                 l: 65,
             },
+
+            // Defining buttons
             buttons: [{
+                // Play button
                 method: "animate",
                 bgcolor: "rgb(200, 200, 200)",
                 args: [null, {
@@ -157,6 +198,7 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
                 }],
                 label: "▶"
             }, {
+                // Pause button
                 method: "animate",
                 args: [
                     [null],
@@ -173,6 +215,8 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
                 label: "❚❚"
             }]
         }],
+
+        // Defining Slider
         sliders: [{
             active: 0,
             bgcolor: "rgb(200, 200, 200)",
@@ -189,6 +233,8 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
                 l: 100,
                 r: 120,
             },
+
+            // Show current slider value as a label
             currentvalue: {
                 visible: true,
                 prefix: "Year:",
@@ -198,6 +244,8 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
                     color: "#666"
                 }
             },
+
+            // Transition Control
             transition: {
                 duration: 500,
                 easing: "sin-in-out"
@@ -205,12 +253,13 @@ Plotly.d3.csv("COD.csv", function (err, rows) {
         }]
     };
 
-
+    // Layout configuration
     var config = {
-        resonsive: true,
-        displayModeBar: false
+        resonsive: true, // size of chart depends on window size
+        displayModeBar: false // Don't show the ugly Plotly bar (who the heck would wanna save our chart as an image)
     }
 
+    // Draw plot
     Plotly.newPlot("myDiv", data, layout, config).then(function () {
         Plotly.addFrames("myDiv", frames);
     });
